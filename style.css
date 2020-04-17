@@ -5,3 +5,12 @@
         vertical-align: middle;
     }
 }
+
+@media {
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+}
