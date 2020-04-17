@@ -8,49 +8,66 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
     <div class="container">
         <header class="blog-header py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 pt-1">
-                    <a class="text-muted" href="#">Subscribe</a>
-                </div>
-                <div class="col-4 text-center">
-                    <a class="blog-header-logo text-dark" href="#">Large</a>
-                </div>
-                <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a class="text-muted" href="#" aria-label="Search">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
-                            viewBox="0 0 24 24" focusable="false">
-                            <title>Search</title>
-                            <circle cx="10.5" cy="10.5" r="7.5"></circle>
-                            <path d="M21 21l-5.2-5.2"></path>
-                        </svg>
-                    </a>
-                    <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
-                </div>
-            </div>
+
         </header>
 
-        <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
-                <a class="p-2 text-muted" href="#">Recipies</a>
-                <a class="p-2 text-muted" href="#">U.S.</a>
-                <a class="p-2 text-muted" href="#">Technology</a>
-                <a class="p-2 text-muted" href="#">Design</a>
-                <a class="p-2 text-muted" href="#">Culture</a>
-                <a class="p-2 text-muted" href="#">Business</a>
-                <a class="p-2 text-muted" href="#">Politics</a>
-                <a class="p-2 text-muted" href="#">Opinion</a>
-                <a class="p-2 text-muted" href="#">Science</a>
-                <a class="p-2 text-muted" href="#">Health</a>
-                <a class="p-2 text-muted" href="#">Style</a>
-                <a class="p-2 text-muted" href="#">Travel</a>
-            </nav>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Browse
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Desserts</a>
+                            <a class="dropdown-item" href="#">Breakfast</a>
+                            <a class="dropdown-item" href="#">Lunch</a>
+                            <a class="dropdown-item" href="#">Dinner</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">All recipes</a>
+                        </div>
+
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li> -->
+                
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li> -->
+
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Recipes" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="Switch">Ingredients</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
 
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
             <div class="col-md-6 px-0">
@@ -116,7 +133,7 @@
                 </h3>
 
                 <div class="blog-post">
-                    <h2 class="blog-post-title">Sample blog post</h2>
+                    <!-- <h2 class="blog-post-title">Sample blog post</h2>
                     <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
                     <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap.
@@ -157,10 +174,10 @@
                         <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
                         <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
                     </ol>
-                    <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+                    <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p> -->
                 </div><!-- /.blog-post -->
 
-                <div class="blog-post">
+                <!-- <div class="blog-post">
                     <h2 class="blog-post-title">Another blog post</h2>
                     <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
 
@@ -175,11 +192,11 @@
                         fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                     <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non
                         commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus,
-                        porta ac consectetur ac, vestibulum at eros.</p>
-                </div><!-- /.blog-post -->
+                        porta ac consectetur ac, vestibulum at eros.</p> -->
+            </div><!-- /.blog-post -->
 
-                <div class="blog-post">
-                    <h2 class="blog-post-title">New feature</h2>
+            <div class="blog-post">
+                <!-- <h2 class="blog-post-title">New feature</h2>
                     <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
 
                     <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean
@@ -194,24 +211,24 @@
                     <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
                         fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                     <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-                    </p>
-                </div><!-- /.blog-post -->
+                    </p> -->
+            </div><!-- /.blog-post -->
 
-                <nav class="blog-pagination">
-                    <a class="btn btn-outline-primary" href="#">Older</a>
-                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-                </nav>
+            <nav class="blog-pagination">
+                <a class="btn btn-outline-primary" href="#">Older</a>
+                <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+            </nav>
 
-            </div><!-- /.blog-main -->
+        </div><!-- /.blog-main -->
 
-            <aside class="col-md-4 blog-sidebar">
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="font-italic">About</h4>
-                    <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur
-                        purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                </div>
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="font-italic">About</h4>
+                <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur
+                    purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
 
-                <div class="p-4">
+            <!-- <div class="p-4">
                     <h4 class="font-italic">Archives</h4>
                     <ol class="list-unstyled mb-0">
                         <li><a href="#">March 2014</a></li>
@@ -227,27 +244,30 @@
                         <li><a href="#">May 2013</a></li>
                         <li><a href="#">April 2013</a></li>
                     </ol>
-                </div>
+                </div> -->
 
-                <div class="p-4">
+            <!-- <div class="p-4">
                     <h4 class="font-italic">Elsewhere</h4>
                     <ol class="list-unstyled">
                         <li><a href="#">GitHub</a></li>
                         <li><a href="#">Twitter</a></li>
                         <li><a href="#">Facebook</a></li>
                     </ol>
-                </div>
-            </aside><!-- /.blog-sidebar -->
+                </div> -->
+        </aside> <!-- /.blog-sidebar -->
 
         </div><!-- /.row -->
 
     </main>
-    <footer class="blog-footer">
-        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a
-                href="https://twitter.com/mdo">@mdo</a>.</p>
-        <p>
-            <a href="#">Back to top</a>
-        </p>
+
+    <footer class="page-footer font-small blue">
+
+
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+        </div>
+
+
     </footer>
     <script type="text/javascript">
 
