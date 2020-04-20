@@ -1,59 +1,41 @@
-
-
-
-
-// bind to click
-// check switch text
-// switch search placeholder
-// $("#Switch").on("click", function (e) {
-//     e.preventDefault()
-//     $(`[type="search"`).attr("placeholder", $("#Switch").text() == "Ingredients" ? "Search Ingredients" : "Search Recipes");
-//     $("#Switch")
-//     $("#Switch").text($("#Switch").text() == "Ingredients" ? "Recipes" : "Ingredients")
-// }) 
-
-// $('#carouselExampleIndicators').carousel({
-//     interval: 4000
-// })
-
 $("#skippr").skippr({
-    transition: 'slide',
-    speed: 1000,
-    easing: 'easeOutQuart',
-    navType: 'block',
-    childrenElementType: 'div',
-    arrows: true,
-    autoPlay: false,
-    autoPlayDuration: 5000,
-    keyboardOnAlways: true,
-    hidePrevious: false
+  transition: 'fade',
+  speed: 1000,
+  easing: 'easeOutQuart',
+  navType: 'block',
+  childrenElementType: 'div',
+  arrows: false,
+  autoPlay: true,
+  autoPlayDuration: 2000,
+  keyboardOnAlways: true,
+  hidePrevious: false
 });
 
 
 // ~~~ Recipe Facts Populator ~~~
 // This function will populate the recipe html with important details.  
 function populateRecipe(recipe) {
-    document.getElementById("title").innerHTML = recipe.label;
-    populateIngredients(recipe.ingredients)
-    document.getElementById("calories").innerHTML = recipe.calories;
-    document.getElementById("servings").innerHTML = recipe.yield;
-    document.getElementById("recipe-img").src = recipe.image;
-    document.getElementById("prep-time").innerHTML = recipe.time;
+  document.getElementById("title").innerHTML = recipe.label;
+  populateIngredients(recipe.ingredients)
+  document.getElementById("calories").innerHTML = recipe.calories;
+  document.getElementById("servings").innerHTML = recipe.yield;
+  document.getElementById("recipe-img").src = recipe.image;
+  document.getElementById("prep-time").innerHTML = recipe.time;
 }
 
 
 // ~~~ Ingredient List Populator ~~~
 // This function writes our ingredients into the webpage.
 function populateIngredients(ingredients) {
-    var whatever = document.getElementById.ingredients;
-    var ul = document.getElementById("ingredients-list");
-    // This loop makes sure every ingredient will be listed.
-    for (i = 0; i < ingredients.length; i++) {
-        var li = document.createElement("LI");
-        var ingredientDesc = document.createTextNode(ingredients[i].quantity + " " + ingredients[i].measure.label + " " + ingredients[i].food.label);
-        li.appendChild(ingredientDesc);
-        ul.appendChild(li);
-    }
+  var whatever = document.getElementById.ingredients;
+  var ul = document.getElementById("ingredients-list");
+  // This loop makes sure every ingredient will be listed.
+  for (i = 0; i < ingredients.length; i++) {
+    var li = document.createElement("LI");
+    var ingredientDesc = document.createTextNode(ingredients[i].quantity + " " + ingredients[i].measure.label + " " + ingredients[i].food.label);
+    li.appendChild(ingredientDesc);
+    ul.appendChild(li);
+  }
 }
 
 
@@ -86,16 +68,19 @@ function displayResults(event) {
     }
 
     event.preventDefault();
-    $(".row").empty();
 
-    // showIngredients(1);
+    $("#headline").hide();
+    $("#recipe-highlights").hide();
+
+    $("#resultsList").show();
+    $("#resultsList").empty();
+  
 
     var keywordSearch = "";
     console.log(event.target.id);
 
     if (targetId == "submit" || targetId == "search") {
         var keywordSearch = $("#search").val().trim();
-        // var keywordSearch = document.querySelector("#search").value.trim();
     } else {
         if (targetId === "searchDesserts") {
             keywordSearch = "desserts"
@@ -110,7 +95,7 @@ function displayResults(event) {
     }
     console.log(keywordSearch);
 
-    document.querySelector("#headline").style.display="none";
+//    document.querySelector("#headline").style.display="none";
 
 
     var queryURL = "https://api.edamam.com/search?q=" + keywordSearch + "&to=30&app_id=a2306fed&app_key=4837c60881d8a0e284f9a0d4565bf8b1"
@@ -135,7 +120,7 @@ function displayResults(event) {
             });
 
             for (var i = 0; i < 30; i++) {
-                //creating div row to contain Cards
+                // creating div row to contain Cards
                 var col = $("<div>").addClass("col m4 l4").appendTo(row);
                 var card = $("<div>").addClass("card mt-4").appendTo(col);
 
@@ -149,11 +134,10 @@ function displayResults(event) {
                     "font-size": "25px",
                 })
                 $("i.more_vert").css({
-                    "position": "relative",
-
+                    "position": "relative"
                 })
 
-                var cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light").appendTo(card);
+                var cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light text-center").appendTo(card);
 
                 // Storing image
                 var imgURL = response.hits[i].recipe.image;
@@ -166,9 +150,6 @@ function displayResults(event) {
                 var cardContent = $("<div>").addClass("card-content").appendTo(card);
                 var cardTitle = $("<span>").addClass("card-title ml-2 grey-text text-darken-4").appendTo(cardContent);
                 cardTitle.attr("onclick", "javascript:showIngredients(" + i + ");");
-                $(".card-content").css({
-                    "height": "180px",
-                })
                 
                 var title = response.hits[i].recipe.label;
                 $("<h5>").addClass("d-inline-block mt-2 text-primary").appendTo(cardTitle).html(title)
@@ -176,16 +157,10 @@ function displayResults(event) {
                 var pOne = $("<p>").appendTo(cardContent);
                 var link = $("<a>").appendTo(pOne);
                 link.addClass("instructions ml-2");
-                $(".instructions").css({
-                    "position": "absolute",
-                    "bottom": "60px",
-                })
                 link.attr("href", instructions);
                 link.attr("target", "_blank");
                 link.html("Instructions");
-
             }
-
         });
        
 }
@@ -196,19 +171,27 @@ $(document).on("click", "#searchDesserts", displayResults)
 $(document).on("click", "#searchBreakfast", displayResults)
 $(document).on("click", "#searchLunch", displayResults)
 $(document).on("click", "#searchDinner", displayResults)
+$(document).on("click", "#home", function(event) {
+  $("#resultsList").hide();
+  $("#headline").show();
+  $("#recipe-highlights").show();
+})
 $(document).on("keydown", "#search", displayResults)
 
 $(document).on("click", ".heart.fa", function(event) {
-    $(this).toggleClass("fa-heart fa-heart-o");
-    $(this)
-      .siblings(".card-content")
-      .children(".instructions");
-    var testValue = $(this)
-      .siblings(".card-content")
-      .find(".instructions");
-    console.log(testValue.attr("href"));
-  });
+  $(this).toggleClass("fa-heart fa-heart-o");
+
+  $(this)
+    .siblings(".card-content")
+    .children(".instructions");
+
+  var testValue = $(this)
+    .siblings(".card-content")
+    .find(".instructions");
+
+  console.log(testValue.attr("href"));
+});
 
 $(document).ready(function(){
-    $(".dropdown-trigger").dropdown();
-    });
+  $(".dropdown-trigger").dropdown();
+});
