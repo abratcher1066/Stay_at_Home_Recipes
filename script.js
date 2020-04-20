@@ -12,12 +12,15 @@
 //     $("#Switch").text($("#Switch").text() == "Ingredients" ? "Recipes" : "Ingredients")
 // }) 
 
+$('#carouselExampleIndicators').carousel({
+    interval: 4000
+})
 
 
 
 // ~~~ Recipe Facts Populator ~~~
 // This function will populate the recipe html with important details.  
-function populateRecipe (recipe) {
+function populateRecipe(recipe) {
     document.getElementById("title").innerHTML = recipe.label;
     populateIngredients(recipe.ingredients)
     document.getElementById("calories").innerHTML = recipe.calories;
@@ -29,7 +32,7 @@ function populateRecipe (recipe) {
 
 // ~~~ Ingredient List Populator ~~~
 // This function writes our ingredients into the webpage.
-function populateIngredients (ingredients) {
+function populateIngredients(ingredients) {
     var whatever = document.getElementById.ingredients;
     var ul = document.getElementById("ingredients-list");
     // This loop makes sure every ingredient will be listed.

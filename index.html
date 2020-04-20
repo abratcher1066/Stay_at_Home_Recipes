@@ -50,10 +50,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Change Search
-                        </a>
+                      
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Desserts</a>
                             <a class="dropdown-item" href="#">Breakfast</a>
@@ -79,7 +76,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search Recipes" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" id="Switch">Ingredients</button>
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" id="Switch">Ingredients</button> -->
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
@@ -90,7 +87,7 @@
 
                 </div> -->
         <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -98,13 +95,23 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="imgs/7-Kitchen-wooden-table-with-tomatoes-pasta-.jpg"
-                            alt="Second slide">
+                        <img  class="d-block w-100" src="imgs/7-Kitchen-wooden-table-with-tomatoes-pasta-.jpg"
+                           >
                         <!-- <img class="d-block w-100" src="..." alt="First slide"> -->
                     </div>
+
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="imgs/IMG_4989.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="imgs/familycooking.jpg" >
                     </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="imgs/pexels-photo-1099680.jpg" >
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="imgs/girlcooking.jpg" >
+                    </div>
+
+                    
                     <!-- <div class="carousel-item">
                             <img class="d-block w-100" src="..." alt="Third slide">
                           </div> -->
@@ -119,11 +126,9 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <div class="col-md-6 px-0" style="background-color: red;">
-                <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-                <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly
-                    and
-                    efficiently about what’s most interesting in this post’s contents.</p>
+            <div class="col-md-6 px-0"  id="textBox">
+                <h1 class="display-4 font-italic">Stay at Home Recipes</h1>
+                <p class="lead my-3">Have fun cooking at home with our delitious recipes!</p>
                 <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
             </div>
             <!-- <div class="col-md-6 px-0" style="background-color: red;">
@@ -139,7 +144,7 @@
         <!-- </div> -->
         <!-- </div> -->
         <div class="row mb-2">
-            <div class="col-md-6">
+            <div class="col-md-6 smallBoxes">
                 <div
                     class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -161,7 +166,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 smallBoxes">
                 <div
                     class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -185,14 +190,14 @@
             </div>
         </div>
     </div>
-    <main role="main" class="container">
+    <!-- <main role="main" class="container">
         <div class="row">
             <div class="col-md-8 blog-main">
                 <h3 class="pb-4 mb-4 font-italic border-bottom">
                     From the Firehose
                 </h3>
 
-                <div class="blog-post">
+                <div class="blog-post"> -->
                     <!-- <h2 class="blog-post-title">Sample blog post</h2>
                     <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
@@ -274,19 +279,19 @@
                     </p> -->
             </div><!-- /.blog-post -->
 
-            <nav class="blog-pagination">
+            <!-- <nav class="blog-pagination">
                 <a class="btn btn-outline-primary" href="#">Older</a>
                 <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-            </nav>
+            </nav> -->
 
         </div><!-- /.blog-main -->
 
-        <aside class="col-md-4 blog-sidebar">
+        <!-- <aside class="col-md-4 blog-sidebar">
             <div class="p-4 mb-3 bg-light rounded">
                 <h4 class="font-italic">About</h4>
                 <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur
                     purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            </div>
+            </div> -->
 
             <!-- <div class="p-4">
                     <h4 class="font-italic">Archives</h4>
