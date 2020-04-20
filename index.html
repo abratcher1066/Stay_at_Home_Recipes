@@ -8,7 +8,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+        crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="./assets/dist/skippr.css" />
   <script src="./assets/dist/skippr.js"></script>
@@ -36,10 +38,10 @@
               Browse
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Desserts</a>
-                <a class="dropdown-item" href="#">Breakfast</a>
-                <a class="dropdown-item" href="#">Lunch</a>
-                <a class="dropdown-item" href="#">Dinner</a>
+                <a class="dropdown-item" id="searchDesserts">Desserts</a>
+                <a class="dropdown-item" id="searchBreakfast">Breakfast</a>
+                <a class="dropdown-item" id="searchLunch">Lunch</a>
+                <a class="dropdown-item" id="searchDinner">Dinner</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">All recipes</a>
             </div>
@@ -71,7 +73,7 @@
 
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Recipes" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Recipes" aria-label="Search" id="search">
                     <!-- <button class="btn btn-outline-success my-2 my-sm-0" id="Switch">Ingredients</button> -->
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -79,10 +81,15 @@
         </nav>
         <!-- <div class="container"> -->
         <!-- <div id="banner"> -->
-        <!-- <div style="background-image: url('imgs/IMG_4989.jpg');">
+        <!-- <div style="background-image: url('imgs/IMG_4989.jpg');"> -->
+        <div id=resultsList>
 
-                </div> -->
-        <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+
+        </div>
+             
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" id="headline">
+            <div class="col-md-6 px-0">
+        </div>
             <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -107,7 +114,7 @@
                     </div>
 
                     
-                    <!-- <div class="carousel-item">
+                        <div class="carousel-item">
                             <img class="d-block w-100" src="..." alt="Third slide">
                           </div> - ->
                 </div>
@@ -126,7 +133,7 @@
                 <p class="lead my-3">Have fun cooking at home with our delitious recipes!</p>
                 <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
             </div>
-            <!-- <div class="col-md-6 px-0" style="background-color: red;">
+                <div class="col-md-6 px-0" style="background-color: red;">
 
                         <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
                         <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly
@@ -143,7 +150,7 @@
                       </div>
                       <div class="col-md-6 px-0"  id="textBox">
                         <h1 class="display-4 font-italic">Stay at Home Recipes</h1>
-                        <p class="lead my-3">Have fun cooking at home with our delitious recipes!</p>
+                        <p class="lead my-3">Have fun cooking at home with our delicious recipes!</p>
                         <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
                       </div>
                     </div>
@@ -335,7 +342,23 @@
         </div><!-- /.row -->
 
     </main>
-
+    
+    <div class="modal fade" tabindex="-1" role="dialog" id="ingredientsModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary">Ingredients</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="ingredientsModalContent">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="page-footer font-small blue">
       <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright:
           <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
