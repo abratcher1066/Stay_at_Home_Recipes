@@ -12,10 +12,22 @@
 //     $("#Switch").text($("#Switch").text() == "Ingredients" ? "Recipes" : "Ingredients")
 // }) 
 
-$('#carouselExampleIndicators').carousel({
-    interval: 4000
-})
+// $('#carouselExampleIndicators').carousel({
+//     interval: 4000
+// })
 
+$("#skippr").skippr({
+    transition: 'slide',
+    speed: 1000,
+    easing: 'easeOutQuart',
+    navType: 'block',
+    childrenElementType: 'div',
+    arrows: true,
+    autoPlay: false,
+    autoPlayDuration: 5000,
+    keyboardOnAlways: true,
+    hidePrevious: false
+});
 
 
 // ~~~ Recipe Facts Populator ~~~
