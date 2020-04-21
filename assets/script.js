@@ -123,8 +123,30 @@ function displayResults(event) {
                 // creating div row to contain Cards
                 var col = $("<div>").addClass("col m4 l4").appendTo(row);
                 var card = $("<div>").addClass("card mt-4").appendTo(col);
+              
+                var favIcon = $("<i>");
+                  if(isFav(i)) {
+                    favIcon.addClass("heart fa fa-heart");
+                  } else {
+                    favIcon.addClass("heart fa fa-heart-o");
+                  }
 
-                var favIcon = $("<i>").addClass("heart fa fa-heart-o");
+                  // will this function come back true, or false?
+                  function isFav(i) {
+                    //get the url using i
+                    var url =  this.apiResp.hits[i].recipe.url;
+                    //get favList form localStorage
+                    var favList = localStorage.getItem("favorites");
+                    //return whether or not favList has the string
+                    if(favList) {
+                        if(favList.includes(url)) {
+                          return true;
+                       }
+                     }
+                     return false
+                  }
+
+                favIcon.attr("onclick", "javascript:addFavorite(" + i + ");");
                 card.prepend(favIcon);
                 $(".heart").css({
                     "position": "relative",
