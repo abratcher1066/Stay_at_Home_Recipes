@@ -45,140 +45,141 @@ var resultsListSpan = document.querySelector("#resultsList");
 var apiResp;
 
 function showIngredients(i) {
-    $("#ingredientsModalContent").empty();
+  $("#ingredientsModalContent").empty();
 
-    var ptwo = $("<p>").addClass("ml-2").appendTo($("#ingredientsModalContent"));
-    var ingredients = this.apiResp.hits[i].recipe.ingredientLines;
+  var ptwo = $("<p>").addClass("ml-2").appendTo($("#ingredientsModalContent"));
+  var ingredients = this.apiResp.hits[i].recipe.ingredientLines;
 
-    for (var j = 0; j < ingredients.length; j++) {
-        var ingredient = ingredients[j];
-        var listItem = $("<li>").addClass("ml-2 text-info").text(ingredient);
-        ptwo.append(listItem);
-    }
-    
-    $("#ingredientsModal").modal('show');
-    // console.log(this.apiResp.hits[i].recipe.label);
+  for (var j = 0; j < ingredients.length; j++) {
+    var ingredient = ingredients[j];
+    var listItem = $("<li>").addClass("ml-2 text-info").text(ingredient);
+    ptwo.append(listItem);
+  }
+
+  $("#ingredientsModal").modal('show');
+  // console.log(this.apiResp.hits[i].recipe.label);
 }
 
 function displayResults(event) {
-    var targetId = event.target.id;
+  event.preventDefault();
+  var targetId = event.target.id;
 
-    if (targetId == "search" && event.keyCode != 13) {
-        return;
+  if (targetId == "search" && event.keyCode != 13) {
+    return;
+  }
+
+
+  $("#headline").hide();
+  $("#recipe-highlights").hide();
+
+  $("#resultsList").show();
+  $("#resultsList").empty();
+
+
+  var keywordSearch = "";
+  console.log(event.target.id);
+
+  if (targetId == "submit" || targetId == "search") {
+    var keywordSearch = $("#search").val().trim();
+  } else {
+    if (targetId === "searchDesserts") {
+      keywordSearch = "desserts"
+    } else if (targetId === "searchBreakfast") {
+      keywordSearch = "breakfast"
+    } else if (targetId === "searchLunch") {
+      keywordSearch = "lunch"
+    } else if (targetId === "searchDinner") {
+      keywordSearch = "dinner"
     }
+    document.querySelector("#search").value = keywordSearch
+  }
+  console.log(keywordSearch);
 
-    event.preventDefault();
+  //    document.querySelector("#headline").style.display="none";
 
-    $("#headline").hide();
-    $("#recipe-highlights").hide();
 
-    $("#resultsList").show();
-    $("#resultsList").empty();
-  
+  var queryURL = "https://api.edamam.com/search?q=" + keywordSearch + "&to=30&app_id=a2306fed&app_key=4837c60881d8a0e284f9a0d4565bf8b1"
 
-    var keywordSearch = "";
-    console.log(event.target.id);
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  })
+    .then(function (response) {
+      var results = response.data;
+      apiResp = response
+      console.log(response);
+      console.log(response.hits[0].recipe.image)
 
-    if (targetId == "submit" || targetId == "search") {
-        var keywordSearch = $("#search").val().trim();
-    } else {
-        if (targetId === "searchDesserts") {
-            keywordSearch = "desserts"
-        } else if (targetId === "searchBreakfast") {
-            keywordSearch = "breakfast"
-        } else if (targetId === "searchLunch") {
-            keywordSearch = "lunch"
-        } else if (targetId === "searchDinner") {
-            keywordSearch = "dinner"
+      var row = $("<div>").addClass("row").appendTo($("#resultsList"));
+      $("<i>").click(function (event) {
+        if (event.target.className === "fa-heart-o") {
+          $(this).toggleClass("fa-heart fa-heart-o");
+          console.log("click");
+
         }
-        document.querySelector("#search").value = keywordSearch
-    }
-    console.log(keywordSearch);
+      });
 
-//    document.querySelector("#headline").style.display="none";
+      for (var i = 0; i < 30; i++) {
+        // creating div row to contain Cards
+        var col = $("<div>").addClass("col m4 l4").appendTo(row);
+        var card = $("<div>").addClass("card mt-4").appendTo(col);
 
-
-    var queryURL = "https://api.edamam.com/search?q=" + keywordSearch + "&to=30&app_id=a2306fed&app_key=4837c60881d8a0e284f9a0d4565bf8b1"
-
-    $.ajax({
-            url: queryURL,
-            method: "GET"
+        var favIcon = $("<i>").addClass("heart fa fa-heart-o");
+        card.prepend(favIcon);
+        $(".heart").css({
+          "position": "relative",
+          "left": "85%",
+          "padding": "12px",
+          "color": "red",
+          "font-size": "25px",
         })
-        .then(function (response) {
-            var results = response.data;
-            apiResp = response
-            console.log(response);
-            console.log(response.hits[0].recipe.image)
+        $("i.more_vert").css({
+          "position": "relative"
+        })
 
-            var row = $("<div>").addClass("row").appendTo($("#resultsList"));
-            $("<i>").click(function(event){ 
-                if (event.target.className === "fa-heart-o") {
-                $(this).toggleClass("fa-heart fa-heart-o");
-                console.log("click");
-                
-                }
-            });
+        var cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light text-center").appendTo(card);
 
-            for (var i = 0; i < 30; i++) {
-                // creating div row to contain Cards
-                var col = $("<div>").addClass("col m4 l4").appendTo(row);
-                var card = $("<div>").addClass("card mt-4").appendTo(col);
+        // Storing image
+        var imgURL = response.hits[i].recipe.image;
 
-                var favIcon = $("<i>").addClass("heart fa fa-heart-o");
-                card.prepend(favIcon);
-                $(".heart").css({
-                    "position": "relative",
-                    "left": "85%",
-                    "padding": "12px",
-                    "color": "red",
-                    "font-size": "25px",
-                })
-                $("i.more_vert").css({
-                    "position": "relative"
-                })
+        var image = $("<img>");
+        image.attr("src", imgURL);
+        image.attr("onclick", "javascript:showIngredients(" + i + ");");
+        image.appendTo(cardImage);
 
-                var cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light text-center").appendTo(card);
+        var cardContent = $("<div>").addClass("card-content").appendTo(card);
+        var cardTitle = $("<span>").addClass("card-title ml-2 grey-text text-darken-4").appendTo(cardContent);
+        cardTitle.attr("onclick", "javascript:showIngredients(" + i + ");");
 
-                // Storing image
-                var imgURL = response.hits[i].recipe.image;
+        var title = response.hits[i].recipe.label;
+        $("<h5>").addClass("d-inline-block mt-2 text-primary").appendTo(cardTitle).html(title)
+        var instructions = response.hits[i].recipe.url;
+        var pOne = $("<p>").appendTo(cardContent);
+        var link = $("<a>").appendTo(pOne);
+        link.addClass("instructions ml-2");
+        link.attr("href", instructions);
+        link.attr("target", "_blank");
+        link.html("Instructions");
+      }
+    });
 
-                var image = $("<img>");
-                image.attr("src", imgURL);
-                image.attr("onclick", "javascript:showIngredients(" + i + ");");
-                image.appendTo(cardImage);
-
-                var cardContent = $("<div>").addClass("card-content").appendTo(card);
-                var cardTitle = $("<span>").addClass("card-title ml-2 grey-text text-darken-4").appendTo(cardContent);
-                cardTitle.attr("onclick", "javascript:showIngredients(" + i + ");");
-                
-                var title = response.hits[i].recipe.label;
-                $("<h5>").addClass("d-inline-block mt-2 text-primary").appendTo(cardTitle).html(title)
-                var instructions = response.hits[i].recipe.url;
-                var pOne = $("<p>").appendTo(cardContent);
-                var link = $("<a>").appendTo(pOne);
-                link.addClass("instructions ml-2");
-                link.attr("href", instructions);
-                link.attr("target", "_blank");
-                link.html("Instructions");
-            }
-        });
-       
 }
 
 $("#submit").on("click", displayResults);
 
 $(document).on("click", "#searchDesserts", displayResults)
+$(document).on("click", "[type='submit']", displayResults)
 $(document).on("click", "#searchBreakfast", displayResults)
 $(document).on("click", "#searchLunch", displayResults)
 $(document).on("click", "#searchDinner", displayResults)
-$(document).on("click", "#home", function(event) {
+$(document).on("click", "#home", function (event) {
   $("#resultsList").hide();
   $("#headline").show();
   $("#recipe-highlights").show();
 })
 $(document).on("keydown", "#search", displayResults)
 
-$(document).on("click", ".heart.fa", function(event) {
+$(document).on("click", ".heart.fa", function (event) {
   $(this).toggleClass("fa-heart fa-heart-o");
 
   $(this)
@@ -192,6 +193,6 @@ $(document).on("click", ".heart.fa", function(event) {
   console.log(testValue.attr("href"));
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
   $(".dropdown-trigger").dropdown();
 });
