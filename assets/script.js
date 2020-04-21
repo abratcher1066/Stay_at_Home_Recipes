@@ -195,3 +195,22 @@ $(document).on("click", ".heart.fa", function(event) {
 $(document).ready(function(){
   $(".dropdown-trigger").dropdown();
 });
+
+
+function addFavorite(i) {
+  var favList = localStorage.getItem("favorites")
+  var url =  this.apiResp.hits[i].recipe.url;
+
+    if (favList){
+      localStorage.setItem("favorites", favList.concat(url + ";"));
+
+    }
+  else{
+    localStorage.setItem("favorites", url + ";");
+
+  };
+};
+
+console.log(favList)
+console.log(url)
+console.log("favorites")
