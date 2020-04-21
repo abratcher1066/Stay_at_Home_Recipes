@@ -61,13 +61,13 @@ function showIngredients(i) {
 }
 
 function displayResults(event) {
-  event.preventDefault();
   var targetId = event.target.id;
 
   if (targetId == "search" && event.keyCode != 13) {
-    return;
+      return;
   }
 
+  event.preventDefault();
 
   $("#headline").hide();
   $("#recipe-highlights").hide();
@@ -80,115 +80,97 @@ function displayResults(event) {
   console.log(event.target.id);
 
   if (targetId == "submit" || targetId == "search") {
-    var keywordSearch = $("#search").val().trim();
+      var keywordSearch = $("#search").val().trim();
   } else {
-    if (targetId === "searchDesserts") {
-      keywordSearch = "desserts"
-    } else if (targetId === "searchBreakfast") {
-      keywordSearch = "breakfast"
-    } else if (targetId === "searchLunch") {
-      keywordSearch = "lunch"
-    } else if (targetId === "searchDinner") {
-      keywordSearch = "dinner"
-    }
-    document.querySelector("#search").value = keywordSearch
+      if (targetId === "searchDesserts") {
+          keywordSearch = "desserts"
+      } else if (targetId === "searchBreakfast") {
+          keywordSearch = "breakfast"
+      } else if (targetId === "searchLunch") {
+          keywordSearch = "lunch"
+      } else if (targetId === "searchDinner") {
+          keywordSearch = "dinner"
+      }
+      document.querySelector("#search").value = keywordSearch
   }
   console.log(keywordSearch);
 
-  //    document.querySelector("#headline").style.display="none";
+//    document.querySelector("#headline").style.display="none";
 
 
   var queryURL = "https://api.edamam.com/search?q=" + keywordSearch + "&to=30&app_id=a2306fed&app_key=4837c60881d8a0e284f9a0d4565bf8b1"
 
   $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-    .then(function (response) {
-      var results = response.data;
-      apiResp = response
-      console.log(response);
-      console.log(response.hits[0].recipe.image)
+          url: queryURL,
+          method: "GET"
+      })
+      .then(function (response) {
+          var results = response.data;
+          apiResp = response
+          console.log(response);
+          console.log(response.hits[0].recipe.image)
 
-      var row = $("<div>").addClass("row").appendTo($("#resultsList"));
-      $("<i>").click(function (event) {
-        if (event.target.className === "fa-heart-o") {
-          $(this).toggleClass("fa-heart fa-heart-o");
-          console.log("click");
-
-        }
-      });
-
-      for (var i = 0; i < 30; i++) {
-        // creating div row to contain Cards
-        var col = $("<div>").addClass("col m4 l4").appendTo(row);
-        var card = $("<div>").addClass("card mt-4").appendTo(col);
-
-        var favIcon = $("<i>").addClass("heart fa fa-heart-o");
-        card.prepend(favIcon);
-        $(".heart").css({
-          "position": "relative",
-          "left": "85%",
-          "padding": "12px",
-          "color": "red",
-          "font-size": "25px",
-        })
-        $("i.more_vert").css({
-          "position": "relative"
-        })
-          .then(function (response) {
-            var results = response.data;
-            apiResp = response
-            console.log(response);
-            console.log(response.hits[0].recipe.image)
-
-            var row = $("<div>").addClass("row").appendTo($("#resultsList"));
-            $("<i>").click(function (event) {
+          var row = $("<div>").addClass("row").appendTo($("#resultsList"));
+          $("<i>").click(function(event){ 
               if (event.target.className === "fa-heart-o") {
-                $(this).toggleClass("fa-heart fa-heart-o");
-                console.log("click");
-
+              $(this).toggleClass("fa-heart fa-heart-o");
+              console.log("click");
+              
               }
-            });
+          });
 
-            for (var i = 0; i < 30; i++) {
+          for (var i = 0; i < 30; i++) {
               // creating div row to contain Cards
               var col = $("<div>").addClass("col m4 l4").appendTo(row);
               var card = $("<div>").addClass("card mt-4").appendTo(col);
-
+            
               var favIcon = $("<i>");
-              if (isFav(i)) {
-                favIcon.addClass("heart fa fa-heart");
-              } else {
-                favIcon.addClass("heart fa fa-heart-o");
-              }
-
-              // will this function come back true, or false?
-              function isFav(i) {
-                //get the url using i
-                var url = this.apiResp.hits[i].recipe.url;
-                //get favList form localStorage
-                var favList = localStorage.getItem("favorites");
-                //return whether or not favList has the string
-                if (favList) {
-                  if (favList.includes(url)) {
-                    return true;
-                  }
+                if(isFav(i)) {
+                  favIcon.addClass("heart fa fa-heart");
+                } else {
+                  favIcon.addClass("heart fa fa-heart-o");
                 }
-                return false
-              }
+
+                // will this function come back true, or false?
+                function isFav(i) {
+                  //get the url using i
+                  var url =  this.apiResp.hits[i].recipe.url;
+                  //get favList form localStorage
+                  var favList = localStorage.getItem("favorites");
+                  //return whether or not favList has the string
+                  if(favList) {
+                      if(favList.includes(url)) {
+                        return true;
+                     }
+                   }
+                   return false
+                }
+
+                 // will this function come back true, or false?
+                function isFav(i) {
+                  //get the url using i
+                  var url =  this.apiResp.hits[i].recipe.url;
+                  //get favList form localStorage
+                  var favList = localStorage.getItem("favorites");
+                  //return whether or not favList has the string
+                  if(favList) {
+                      return favList.includes(url);
+                     }
+                   
+                   return false
+                }
 
               favIcon.attr("onclick", "javascript:addFavorite(" + i + ");");
               card.prepend(favIcon);
               $(".heart").css({
-                "position": "relative",
-                "left": "85%",
-                "padding": "12px",
-                "color": "red",
-                "font-size": "25px",
+                  "position": "relative",
+                  "left": "85%",
+                  "padding": "12px",
+                  "color": "red",
+                  "font-size": "25px",
               })
               $("i.more_vert").css({
-                "position": "relative"
+                  "position": "relative"
               })
 
               var cardImage = $("<div>").addClass("card-image waves-effect waves-block waves-light text-center").appendTo(card);
@@ -204,7 +186,7 @@ function displayResults(event) {
               var cardContent = $("<div>").addClass("card-content").appendTo(card);
               var cardTitle = $("<span>").addClass("card-title ml-2 grey-text text-darken-4").appendTo(cardContent);
               cardTitle.attr("onclick", "javascript:showIngredients(" + i + ");");
-
+              
               var title = response.hits[i].recipe.label;
               $("<h5>").addClass("d-inline-block mt-2 text-primary").appendTo(cardTitle).html(title)
               var instructions = response.hits[i].recipe.url;
@@ -214,10 +196,10 @@ function displayResults(event) {
               link.attr("href", instructions);
               link.attr("target", "_blank");
               link.html("Instructions");
-            }
-          });
-
-      }
+          }
+      });
+     
+}
 
       $("#submit").on("click", displayResults);
 
@@ -267,12 +249,4 @@ function displayResults(event) {
           localStorage.setItem("favorites", url + ";");
 
         }
-      };
-
-      console.log(favList)
-      console.log(url)
-      console.log("favorites")
-
-      localStorage.setItem("favorites", favList.concat(url + ";"))
-    })
-}
+      }
