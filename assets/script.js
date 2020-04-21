@@ -198,19 +198,24 @@ $(document).ready(function(){
 
 
 function addFavorite(i) {
-  var favList = localStorage.getItem("favorites")
+  var favList = localStorage.getItem("favorites");
   var url =  this.apiResp.hits[i].recipe.url;
 
     if (favList){
-      localStorage.setItem("favorites", favList.concat(url + ";"));
-
-    }
-  else{
+      if (favList.includes(url)) {
+        
+        localStorage.setItem("favorites", favList.replace(url +";" , ""));
+      } else {
+        localStorage.setItem("favorites", favList.concat(url + ";"));
+      }
+    } else {
     localStorage.setItem("favorites", url + ";");
 
-  };
+  }
 };
 
 console.log(favList)
 console.log(url)
 console.log("favorites")
+
+localStorage.setItem("favorites", favList.concat(url + ";"))
