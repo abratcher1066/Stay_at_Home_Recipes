@@ -12,14 +12,14 @@ Staying at home these days can be tough--and deciding what's for dinner can be e
 
 ![second image](https://i.ibb.co/pKxxB8n/image3.png)
 
-Take back dinnertime by [checking out our free, easy-to-use app](https://tanksareforcowards.github.io/Stay_at_Home_Recipes/)!  Use *Stay At Home Cooking* to:
+Take back dinnertime by [checking out our free, easy-to-use app](https://tanksareforcowards.github.io/Stay_at_Home_Recipes/)!  Use *Stay At Home Recipes* to:
 - Preview over 1,500,000 recipes from 1000s of different websites--without the clutter.
     - *200,000 recetas españolas adicionales proporcionadas por Edamam API!*
 - See ingredient lists with a click, no scrolling required.
 - Search by name, meal type, or try a favorite from our curated collection.
 - Add recipes to your favorites for future reference, stored in one centralized location.
 
-Help flatten the curve--*Stay at Home* and cook!
+Help flatten the curve -- *Stay at Home* and cook!
 
 ![third image](https://i.ibb.co/xf9qzhc/image2.gif)
 
@@ -33,12 +33,12 @@ Help flatten the curve--*Stay at Home* and cook!
 
 ## Installation
 ----
-Visit [the online version on GitHub](https://tanksareforcowards.github.io/Stay_at_Home_Recipes/)!
+Visit [the online app on GitHub](https://tanksareforcowards.github.io/Stay_at_Home_Recipes/)!
 
 
 ## Usage
 ----
-- Search for recipes by typing keywords into the search bar (* e.g. 'chicken parmesan', 'fish sandwich'*)
+- **Search for recipes** by typing keywords into the search bar (* e.g. 'chicken parmesan', 'fish sandwich'*)
 - **Preview a recipe's ingredients** by left-clicking the card photos.
 - **Get the full recipe** by left-clicking 'Instructions'.
 - **Add a recipe to your favorites by left-clicking an unfilled heart; left-click a filled heart to remove it.
