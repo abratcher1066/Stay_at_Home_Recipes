@@ -1,23 +1,27 @@
 
-# Stay at Home Cooking 
-*A Resource for the Cloistered Cook*
+# Stay at Home Recipes 
+*"A Resource for the Cloistered Cook"*
 
-[![Build Status](https://travis-ci.com/tanksareforcowards/stay_at_home_cooking.svg?branch=master)](https://travis-ci.com/tanksareforcowards/stay_at_home_cooking)
+![first image](https://i.ibb.co/kSJnytk/image1-small-github.png)
+
+[![Build Status](https://travis-ci.com/tanksareforcowards/stay_at_home_recipes.svg?branch=master)](https://travis-ci.com/tanksareforcowards/stay_at_home_recipes)
 
 ## Description
 ----
 Staying at home these days can be tough--and deciding what's for dinner can be even tougher.  Today's recipe websites have more content than ever, but they're often not user-friendly.  They tend to be bloated with ads, excessive personal stories, and page load times as long as cook times!
 
-Take back dinnertime by [checking out our free, easy-to-use app](https://tanksareforcowards.github.io/Stay_at_Home_Cooking/)!  Use *Stay At Home Cooking* to:
+![second image](https://i.ibb.co/pKxxB8n/image3.png)
+
+Take back dinnertime by [checking out our free, easy-to-use app](https://tanksareforcowards.github.io/Stay_at_Home_Recipes/)!  Use *Stay At Home Cooking* to:
 - Preview over 1,500,000 recipes from 1000s of different websites--without the clutter.
-    - + *200,000 recetas españolas adicionales proporcionadas por Edamam API!*
+    - *200,000 recetas españolas adicionales proporcionadas por Edamam API!*
 - See ingredient lists with a click, no scrolling required.
 - Search by name, meal type, or try a favorite from our curated collection.
 - Add recipes to your favorites for future reference, stored in one centralized location.
 
-Help flatten the curve--*Stay At Home* and cook!
+Help flatten the curve--*Stay at Home* and cook!
 
-![first image](https://i.ibb.co/WcF5tQq/readme1.png)
+![third image](https://i.ibb.co/xf9qzhc/image2.gif)
 
 
 ## Table of Contents
@@ -29,9 +33,7 @@ Help flatten the curve--*Stay At Home* and cook!
 
 ## Installation
 ----
-Visit [the online version on GitHub](https://tanksareforcowards.github.io/Stay_at_Home_Cooking/)!
-
-![second image](https://i.ibb.co/xjKPyqM/readme2.png)
+Visit [the online version on GitHub](https://tanksareforcowards.github.io/Stay_at_Home_Recipes/)!
 
 
 ## Usage
@@ -64,4 +66,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * **Mariana Barnett** | [@mariana](https://github.com/maribarnett3) | ![GitHub followers](https://img.shields.io/github/followers/maribarnett3?label=Follow&style=social)
 * **Andrew Bratcher** | [@andrew](https://github.com/tanksareforcowards) | ![GitHub followers](https://img.shields.io/github/followers/tanksareforcowards?label=Follow&style=social)
 * **Bryan Fennell** | [@bryan](https://github.com/bryan3023) | ![GitHub followers](https://img.shields.io/github/followers/bryan3023?label=Follow&style=social)
-* **Johnny Liang** | [@rachel](https://github.com/juncongliang) | ![GitHub followers](https://img.shields.io/github/followers/juncongliang?label=Follow&style=social)
+* **Johnny Liang** | [@johnny](https://github.com/juncongliang) | ![GitHub followers](https://img.shields.io/github/followers/juncongliang?label=Follow&style=social)
