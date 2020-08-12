@@ -12,7 +12,9 @@ Staying at home these days can be tough--and deciding what's for dinner can be e
 
 ![second image](https://i.ibb.co/pKxxB8n/image3.png)
 
-Take back dinnertime by [checking out our free, easy-to-use app](https://tanksareforcowards.github.io/Stay_at_Home_Recipes/)!  Use *Stay At Home Recipes* to:
+### Deployed app: [link](https://abratcher1066.github.io/Stay_at_Home_Recipes/)  
+
+Use *Stay At Home Recipes* to:
 - Preview over 1,500,000 recipes from 1000s of different websites--without the clutter.
     - *200,000 recetas españolas adicionales proporcionadas por Edamam API!*
 - See ingredient lists with a click, no scrolling required.
@@ -64,6 +66,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ----
 
 * **Mariana Barnett** | [@mariana](https://github.com/maribarnett3) | ![GitHub followers](https://img.shields.io/github/followers/maribarnett3?label=Follow&style=social)
-* **Andrew Bratcher** | [@andrew](https://github.com/tanksareforcowards) | ![GitHub followers](https://img.shields.io/github/followers/tanksareforcowards?label=Follow&style=social)
+* **Andrew Bratcher** | [@andrew](https://github.com/abratcher1066) | ![GitHub followers](https://img.shields.io/github/followers/abratcher1066?label=Follow&style=social)
 * **Bryan Fennell** | [@bryan](https://github.com/bryan3023) | ![GitHub followers](https://img.shields.io/github/followers/bryan3023?label=Follow&style=social)
 * **Johnny Liang** | [@johnny](https://github.com/juncongliang) | ![GitHub followers](https://img.shields.io/github/followers/juncongliang?label=Follow&style=social)
